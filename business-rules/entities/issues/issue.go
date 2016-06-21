@@ -26,19 +26,19 @@ func (i *Issue) GetID() int { return i.id }
 // GetStatus returns the status of the issue.
 func (i *Issue) GetStatus() string { return i.status }
 
-// GetStatus returns the title of the issue.
+// GetTitle returns the title of the issue.
 func (i *Issue) GetTitle() string { return i.title }
 
-// GetStatus returns the description of the issue.
+// GetDescription returns the description of the issue.
 func (i *Issue) GetDescription() string { return i.description }
 
-// GetStatus returns the creation date of the issue.
+// GetCreatedAt returns the creation date of the issue.
 func (i *Issue) GetCreatedAt() time.Time { return i.createdAt }
 
-// GetStatus returns the finish date of the issue.
+// GetDoneAt returns the finish date of the issue.
 func (i *Issue) GetDoneAt() time.Time { return i.doneAt }
 
-// GetStatus returns the closing date of the issue.
+// GetClosedAt returns the closing date of the issue.
 func (i *Issue) GetClosedAt() time.Time { return i.closedAt }
 
 // IsDone returns true if the issue status is "DONE".
