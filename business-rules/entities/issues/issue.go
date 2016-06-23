@@ -47,6 +47,17 @@ func (i *Issue) IsDone() bool { return i.GetStatus() == Done }
 // IsClosed returns true if the issue status is "CLOSED".
 func (i *Issue) IsClosed() bool { return i.GetStatus() == Closed }
 
+// SetDone sets the issue status to "DONE"
+func (i *Issue) SetDone() error {
+	if i.IsDone() {
+		return &AlreadyDoneError{}
+	}
+
+	i.doneAt = time.Now()
+	i.status = Done
+	return nil
+}
+
 // Close closes an open issue
 func (i *Issue) Close() error {
 	if i.IsClosed() {
