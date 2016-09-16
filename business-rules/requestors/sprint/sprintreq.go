@@ -7,3 +7,9 @@ type GetSprintRequest interface {
 
 	GetSprintID() int
 }
+
+type CloseSprintRequest interface {
+	cleanarch.UseCaseRequest
+
+	GetSprintID() int
+}

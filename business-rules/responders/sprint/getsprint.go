@@ -7,7 +7,7 @@ import (
 	"github.com/moul/go-clean-architecture/business-rules/entities/sprint"
 )
 
-type SprintResponse interface {
+type GetSprintResponse interface {
 	cleanarch.UseCaseResponse
 
 	GetCreatedAt() time.Time
@@ -17,6 +17,6 @@ type SprintResponse interface {
 	GetStatus() string
 }
 
-type SprintResponseAssembler interface {
-	Write(*sprint.Sprint) (SprintResponse, error)
+type GetSprintResponseAssembler interface {
+	Write(*sprint.Sprint) (GetSprintResponse, error)
 }

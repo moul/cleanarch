@@ -7,18 +7,18 @@ import (
 	"github.com/moul/go-clean-architecture/business-rules/responders/sprint"
 )
 
-type SprintUseCase struct {
+type GetSprint struct {
 	cleanarch.UseCase
 
-	sprintgw   sprintgw.SprintGateway
-	sprintresp sprintresp.SprintResponseAssembler
+	gw   sprintgw.SprintGateway
+	resp sprintresp.GetSprintResponseAssembler
 }
 
-func (uc *SprintUseCase) Execute(req sprintreq.GetSprintRequest) (cleanarch.UseCaseResponse, error) {
-	sprint, err := uc.sprintgw.Find(req.GetSprintID())
+func (uc *GetSprint) Execute(req sprintreq.GetSprintRequest) (cleanarch.UseCaseResponse, error) {
+	sprint, err := uc.gw.Find(req.GetSprintID())
 	if err != nil {
 		return nil, err
 	}
 
-	return uc.sprintresp.Write(sprint)
+	return uc.resp.Write(sprint)
 }
