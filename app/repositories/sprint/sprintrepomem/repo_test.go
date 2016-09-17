@@ -1,1 +1,1 @@
-package sprintreposmem
+package sprintrepomem

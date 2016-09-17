@@ -18,6 +18,14 @@ func NewGetSprint() GetSprint {
 	return GetSprint{}
 }
 
+func (uc *GetSprint) SetSprintGateway(gw sprintgw.SprintGateway) {
+	uc.gw = gw
+}
+
+func (uc *GetSprint) SetGetSprintResponseAssembler(resp sprintresp.GetSprintResponseAssembler) {
+	uc.resp = resp
+}
+
 func (uc *GetSprint) Execute(req sprintreq.GetSprintRequest) (cleanarch.UseCaseResponse, error) {
 	sprint, err := uc.gw.Find(req.GetSprintID())
 	if err != nil {

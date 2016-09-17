@@ -11,18 +11,18 @@ type SprintRepositorySQL struct {
 	sprintgw.SprintGateway
 }
 
-func (r *SprintRepository) Find(int) (*sprint.Sprint, error) {
+func (r *SprintRepositorySQL) Find(int) (*sprint.Sprint, error) {
 	return nil, fmt.Errorf("Not implemented")
 }
 
-func (r *SprintRepository) FindSprintToClose() (*sprint.Sprint, error) {
+func (r *SprintRepositorySQL) FindSprintToClose() (*sprint.Sprint, error) {
 	return nil, fmt.Errorf("Not implemented")
 }
 
-func (r *SprintRepository) FindAverageClosedIssues() int {
+func (r *SprintRepositorySQL) FindAverageClosedIssues() int {
 	return 0
 }
 
-func (r *SprintRepository) Update(*sprint.Sprint) error {
+func (r *SprintRepositorySQL) Update(*sprint.Sprint) error {
 	return fmt.Errorf("Not implemented")
 }
