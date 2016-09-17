@@ -14,6 +14,10 @@ type GetSprint struct {
 	resp sprintresp.GetSprintResponseAssembler
 }
 
+func NewGetSprint() GetSprint {
+	return GetSprint{}
+}
+
 func (uc *GetSprint) Execute(req sprintreq.GetSprintRequest) (cleanarch.UseCaseResponse, error) {
 	sprint, err := uc.gw.Find(req.GetSprintID())
 	if err != nil {
