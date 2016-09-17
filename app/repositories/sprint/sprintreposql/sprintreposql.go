@@ -1,4 +1,4 @@
-package sprintrepo
+package sprintreposql
 
 import (
 	"fmt"
@@ -7,7 +7,7 @@ import (
 	"github.com/moul/go-clean-architecture/business-rules/gateways/sprint"
 )
 
-type SprintRepository struct {
+type SprintRepositorySQL struct {
 	sprintgw.SprintGateway
 }
 
