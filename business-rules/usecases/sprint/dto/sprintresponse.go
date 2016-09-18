@@ -6,7 +6,7 @@ import (
 	"github.com/moul/go-clean-architecture/business-rules/responders/sprint"
 )
 
-type SprintResponseDTO struct {
+type GetSprintResponseDTO struct {
 	sprintresp.GetSprintResponse
 
 	createdAt         time.Time
@@ -16,8 +16,8 @@ type SprintResponseDTO struct {
 	status            string
 }
 
-func (r *SprintResponseDTO) GetCreatedAt() time.Time         { return r.createdAt }
-func (r *SprintResponseDTO) GetEffectiveClosedAt() time.Time { return r.effectiveClosedAt }
-func (r *SprintResponseDTO) GetExpectecClosedAt() time.Time  { return r.expectedClosedAt }
-func (r *SprintResponseDTO) GetID() int                      { return r.id }
-func (r *SprintResponseDTO) GetStatis() string               { return r.status }
+func (r GetSprintResponseDTO) GetCreatedAt() time.Time         { return r.createdAt }
+func (r GetSprintResponseDTO) GetEffectiveClosedAt() time.Time { return r.effectiveClosedAt }
+func (r GetSprintResponseDTO) GetExpectecClosedAt() time.Time  { return r.expectedClosedAt }
+func (r GetSprintResponseDTO) GetID() int                      { return r.id }
+func (r GetSprintResponseDTO) GetStatis() string               { return r.status }
