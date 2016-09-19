@@ -1,0 +1,4 @@
+#!/bin/sh
+
+PACKAGE=$(go list .)
+godepgraph -s "${PACKAGE}" | dot -Tpng -o .import-graph.png
