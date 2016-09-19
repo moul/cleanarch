@@ -18,6 +18,6 @@ type GetSprintResponseDTO struct {
 
 func (r GetSprintResponseDTO) GetCreatedAt() time.Time         { return r.createdAt }
 func (r GetSprintResponseDTO) GetEffectiveClosedAt() time.Time { return r.effectiveClosedAt }
-func (r GetSprintResponseDTO) GetExpectecClosedAt() time.Time  { return r.expectedClosedAt }
+func (r GetSprintResponseDTO) GetExpectedClosedAt() time.Time  { return r.expectedClosedAt }
 func (r GetSprintResponseDTO) GetID() int                      { return r.id }
-func (r GetSprintResponseDTO) GetStatis() string               { return r.status }
+func (r GetSprintResponseDTO) GetStatus() string               { return r.status }
