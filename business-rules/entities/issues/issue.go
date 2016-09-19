@@ -20,6 +20,30 @@ func New() *Issue {
 	}
 }
 
+/* generic setters */
+// SetID sets the ID of the issue.
+func (i *Issue) SetID(val int) { i.id = val }
+
+// SetStatus sets the status of the issue.
+func (i *Issue) SetStatus(val string) { i.status = val }
+
+// SetTitle sets the title of the issue.
+func (i *Issue) SetTitle(val string) { i.title = val }
+
+// SetDescription sets the description of the issue.
+func (i *Issue) SetDescription(val string) { i.description = val }
+
+// SetCreatedAt sets the creation date of the issue.
+func (i *Issue) SetCreatedAt(val time.Time) { i.createdAt = val }
+
+// SetDoneAt sets the finish date of the issue.
+func (i *Issue) SetDoneAt(val time.Time) { i.doneAt = val }
+
+// SetClosedAt sets the closing date of the issue.
+func (i *Issue) SetClosedAt(val time.Time) { i.closedAt = val }
+
+/* generic getters */
+
 // GetID returns the ID of the issue.
 func (i *Issue) GetID() int { return i.id }
 
@@ -40,6 +64,8 @@ func (i *Issue) GetDoneAt() time.Time { return i.doneAt }
 
 // GetClosedAt returns the closing date of the issue.
 func (i *Issue) GetClosedAt() time.Time { return i.closedAt }
+
+/* other methods */
 
 // IsDone returns true if the issue status is "DONE".
 func (i *Issue) IsDone() bool { return i.GetStatus() == Done }

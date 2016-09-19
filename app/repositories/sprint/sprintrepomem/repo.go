@@ -37,10 +37,25 @@ func (r SprintRepositoryMemory) FindSprintToClose() (*sprint.Sprint, error) {
 	return nil, fmt.Errorf("Not implemented")
 }
 
-func (r SprintRepositoryMemory) FindAverageClosedIssues() int {
-	return 0
+func (r SprintRepositoryMemory) FindAverageClosedIssues() float64 {
+	sprintsCount := 0
+	issuesCount := 0
+	for _, sprint := range r.sprints {
+		sprintsCount++
+		issuesCount += len(sprint.GetIssues())
+	}
+	if sprintsCount > 0 {
+		return float64(issuesCount) / float64(sprintsCount)
+	}
+	return float64(0)
 }
 
-func (r SprintRepositoryMemory) Update(*sprint.Sprint) error {
-	return fmt.Errorf("Not implemented")
+func (r *SprintRepositoryMemory) Update(updated *sprint.Sprint) error {
+	for idx, sprint := range r.sprints {
+		if sprint.GetID() == updated.GetID() {
+			r.sprints[idx] = *updated
+			return nil
+		}
+	}
+	return sprint.NotFoundError{}
 }

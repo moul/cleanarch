@@ -14,7 +14,19 @@ type CloseSprint struct {
 	resp sprintresp.CloseSprintResponseBuilder
 }
 
-func (uc *CloseSprint) Execute(req sprintreq.CloseSprintRequest) (cleanarch.UseCaseResponse, error) {
+func NewCloseSprint() CloseSprint {
+	return CloseSprint{}
+}
+
+func (uc *CloseSprint) SetSprintGateway(gw sprintgw.SprintGateway) {
+	uc.gw = gw
+}
+
+func (uc *CloseSprint) SetCloseSprintResponseBuilder(resp sprintresp.CloseSprintResponseBuilder) {
+	uc.resp = resp
+}
+
+func (uc *CloseSprint) Execute(req sprintreq.CloseSprintRequest) (sprintresp.CloseSprintResponse, error) {
 	sprint, err := uc.gw.Find(req.GetSprintID())
 	if err != nil {
 		return nil, err

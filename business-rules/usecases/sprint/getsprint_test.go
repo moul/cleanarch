@@ -9,22 +9,11 @@ import (
 	. "github.com/smartystreets/goconvey/convey"
 )
 
-type SprintImplTest struct {
-	sprint.Sprint
-
-	id int
-}
-
-var sprintStub1 = sprint.New()
-
-func init() {
-	sprintStub1.SetID(42)
-}
-
-func getTestingUseCase() GetSprint {
+func dummyGetSprintUC() GetSprint {
 	// prepare sprint repo
 	repo := sprintrepomem.New()
 	repo.Add(sprintStub1)
+	repo.Add(sprintStub2)
 
 	// prepare usecase
 	uc := NewGetSprint()
@@ -36,7 +25,7 @@ func getTestingUseCase() GetSprint {
 func TestGetSprint(t *testing.T) {
 	Convey("Testing GetSprint", t, func() {
 		// prepare
-		uc := getTestingUseCase()
+		uc := dummyGetSprintUC()
 		req := sprintucdto.GetSprintRequestBuilderDTO{}.Create().WithSprintID(42).Build()
 
 		// execute usecase
@@ -55,8 +44,8 @@ func TestGetSprint(t *testing.T) {
 
 	Convey("Testing NotFound", t, func() {
 		// prepare
-		uc := getTestingUseCase()
-		req := sprintucdto.GetSprintRequestBuilderDTO{}.Create().WithSprintID(43).Build()
+		uc := dummyGetSprintUC()
+		req := sprintucdto.GetSprintRequestBuilderDTO{}.Create().WithSprintID(123456789).Build()
 
 		// execute usecase
 		resp, err := uc.Execute(req)

@@ -7,6 +7,6 @@ type SprintGateway interface {
 	Add(*sprint.Sprint) error
 	Find(int) (*sprint.Sprint, error)
 	FindSprintToClose() (*sprint.Sprint, error)
-	FindAverageClosedIssues() int
+	FindAverageClosedIssues() float64
 	Update(*sprint.Sprint) error
 }

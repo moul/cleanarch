@@ -21,3 +21,11 @@ type CloseSprintRequest interface {
 
 	GetSprintID() int
 }
+
+type CloseSprintRequestBuilder interface {
+	cleanarch.UseCaseRequestBuilder
+
+	Create() GetSprintRequestBuilder
+	WithSprintID(int) GetSprintRequestBuilder
+	Build() GetSprintRequest
+}
