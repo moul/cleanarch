@@ -1,7 +1,9 @@
 #!/bin/sh
 
 PACKAGE=$(go list .)
+PACKAGE_ROOT=$(echo "${PACKAGE}" | cut -d/ -f-3)
+
 FORMAT="${FORMAT:-png}"
 FILTER="${FILTER:-dot}"
 
-godepgraph -s "${PACKAGE}" | "${FILTER}" -T"${FORMAT}" -o .import-graph."${FORMAT}"
+godepgraph -s "${PACKAGE}" | sed "s@${PACKAGE_ROOT}/@./@g" | "${FILTER}" -T"${FORMAT}" -o .import-graph."${FORMAT}"
