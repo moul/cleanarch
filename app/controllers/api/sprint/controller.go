@@ -17,7 +17,20 @@ type Controller struct {
 	sprintGateway              sprintgw.SprintGateway
 	getSprintResponseAssembler sprintresp.GetSprintResponseAssembler
 	getSprintRequestBuilder    sprintreq.GetSprintRequestBuilder
-	viewModelAssembler         app_vm_api_sprint.GetAssembler
+
+	viewModelAssembler app_vm_api_sprint.GetAssembler
+}
+
+func NewController() *Controller {
+	return &Controller{}
+}
+
+func (ctrl *Controller) SetSprintGateway(val sprintgw.SprintGateway) { ctrl.sprintGateway = val }
+func (ctrl *Controller) SetGetSprintResponseAssembler(val sprintresp.GetSprintResponseAssembler) {
+	ctrl.getSprintResponseAssembler = val
+}
+func (ctrl *Controller) SetGetSprintRequestBuilder(val sprintreq.GetSprintRequestBuilder) {
+	ctrl.getSprintRequestBuilder = val
 }
 
 func (ctrl *Controller) GetSprint(c *gin.Context) {

@@ -9,6 +9,8 @@ import (
 
 type GetAssembler struct{}
 
+func NewGetAssembler() *GetAssembler { return &GetAssembler{} }
+
 func (a *GetAssembler) WriteGet(resp sprintresp.GetSprintResponse) Get {
 	get := Get{}
 	get.CreatedAt = resp.GetCreatedAt()
