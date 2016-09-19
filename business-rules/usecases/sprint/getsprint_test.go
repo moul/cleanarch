@@ -17,12 +17,13 @@ type SprintImplTest struct {
 
 func TestGetSprint(t *testing.T) {
 	Convey("Testing GetSprint", t, func() {
+		// prepare dummy objects
+		sprintStub1 := sprint.New()
+		sprintStub1.SetID(42)
+
 		// prepare sprint repo
-		repo := sprintrepomem.SprintRepositoryMemory{}
-		dummySprint := SprintImplTest{
-			id: 42,
-		}
-		//repo.
+		repo := sprintrepomem.New()
+		repo.Add(sprintStub1)
 
 		// prepare usecase
 		uc := NewGetSprint()
@@ -31,10 +32,11 @@ func TestGetSprint(t *testing.T) {
 
 		// prepare request builder
 		reqBuilder := sprintucdto.GetSprintRequestBuilderDTO{}
-
 		request := reqBuilder.Create().WithSprintID(42).Build()
+
+		// execute usecase
 		resp, err := uc.Execute(request)
 		So(err, ShouldBeNil)
-		So(resp.GetID(), ShouldEqual, dummySprint.GetID())
+		So(resp.GetID(), ShouldEqual, sprintStub1.GetID())
 	})
 }

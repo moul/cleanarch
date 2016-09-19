@@ -24,6 +24,25 @@ func New() *Sprint {
 	}
 }
 
+/* Setters */
+
+// SetID sets the ID of the sprint.
+func (i *Sprint) SetID(val int) { i.id = val }
+
+// SetStatus sets the Status of the sprint.
+func (i *Sprint) SetStatus(val int) { i.id = val }
+
+// SetCreatedAt sets the CreatedAt of the sprint.
+func (i *Sprint) SetCreatedAt(val int) { i.id = val }
+
+// SetExpectedClosedAt sets the ExpectedClosedAt of the sprint.
+func (i *Sprint) SetExpectedClosedAt(val int) { i.id = val }
+
+// SetEffectiveClosedAt sets the EffectiveClosedAt of the sprint.
+func (i *Sprint) SetEffectiveClosedAt(val int) { i.id = val }
+
+/* Getters */
+
 // GetID returns the ID of the sprint.
 func (i *Sprint) GetID() int { return i.id }
 
@@ -38,6 +57,8 @@ func (i *Sprint) GetExpectedClosedAt() time.Time { return i.expectedClosedAt }
 
 // GetEffectiveClosedAt returns the finish date of the sprint.
 func (i *Sprint) GetEffectiveClosedAt() time.Time { return i.effectiveClosedAt }
+
+/* ---- */
 
 // AddIssue adds an issue to the sprint.
 func (i *Sprint) AddIssue(issue *issue.Issue) {

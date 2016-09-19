@@ -26,7 +26,7 @@ func (uc *GetSprint) SetGetSprintResponseAssembler(resp sprintresp.GetSprintResp
 	uc.resp = resp
 }
 
-func (uc *GetSprint) Execute(req sprintreq.GetSprintRequest) (cleanarch.UseCaseResponse, error) {
+func (uc *GetSprint) Execute(req sprintreq.GetSprintRequest) (sprintresp.GetSprintResponse, error) {
 	sprint, err := uc.gw.Find(req.GetSprintID())
 	if err != nil {
 		return nil, err
