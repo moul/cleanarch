@@ -1,0 +1,10 @@
+# dev files
+test.db
+
+# binaries
+/api
+
+# junk
+*~
+.#*
+*#
