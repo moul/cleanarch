@@ -1,4 +1,4 @@
-# go-clean-architecture
-Golang implementation of the clean architecture
+# example
+Golang <strike>implementation</strike>POC of the clean architecture
 
-[![GoDoc](https://godoc.org/github.com/moul/go-clean-architecture?status.svg)](https://godoc.org/github.com/moul/go-clean-architecture)
+[![GoDoc](https://godoc.org/github.com/moul/cleanarch/example?status.svg)](https://godoc.org/github.com/moul/cleanarch/example)
