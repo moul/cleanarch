@@ -97,7 +97,7 @@ func Example_Sprint() {
 	fmt.Println(len(sprint.GetIssues()))
 	fmt.Println(sprint.GetIssuesCount())
 
-	fmt.Println(sprint.GetStatus() == "")
+	fmt.Println(sprint.GetStatus() == Open)
 	fmt.Println(sprint.IsClosed())
 
 	fmt.Println(sprint.Close())

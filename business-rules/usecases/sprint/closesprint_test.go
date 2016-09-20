@@ -1,7 +1,6 @@
 package sprintuc
 
 import (
-	"fmt"
 	"testing"
 
 	"github.com/moul/go-clean-architecture/app/repositories/sprint/sprintrepomem"
@@ -37,7 +36,6 @@ func TestCloseSprint(t *testing.T) {
 		So(resp.GetSprintID(), ShouldEqual, sprintStub2.GetID())
 
 		actualSprint, err := uc.gw.Find(sprintStub2.GetID())
-		issue := actualSprint.GetIssues()
 		So(err, ShouldBeNil)
 		So(actualSprint.IsClosed(), ShouldBeTrue)
 		So(len(actualSprint.GetIssues()), ShouldEqual, 1)
