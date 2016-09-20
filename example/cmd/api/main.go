@@ -3,9 +3,8 @@ package main
 import (
 	"github.com/gin-gonic/gin"
 	"github.com/jinzhu/gorm"
-	"github.com/moul/go-clean-architecture/app/controllers/api/sprint"
-	"github.com/moul/go-clean-architecture/app/repositories/sprint/sprintrepogorm"
-	"github.com/moul/go-clean-architecture/business-rules/usecases/sprint/dto"
+	"github.com/moul/cleanarch/example/app/controllers/api"
+	"github.com/moul/cleanarch/example/app/repos/sprints/gorm"
 
 	_ "github.com/mattn/go-sqlite3"
 )
@@ -20,12 +19,8 @@ func main() {
 
 	// Setup API
 	gin := gin.Default()
-	controller := app_ctrl_api_sprint.NewController()
-	controller.SetSprintGateway(app_repo_sprint_gorm.New(db))
-	controller.SetGetSprintResponseAssembler(sprintucdto.GetSprintResponseAssemblerDTO{})
-	controller.SetGetSprintRequestBuilder(sprintucdto.GetSprintRequestBuilderDTO{})
-	controller.SetAddSprintResponseAssembler(sprintucdto.AddSprintResponseAssemblerDTO{})
-	controller.SetAddSprintRequestBuilder(sprintucdto.AddSprintRequestBuilderDTO{})
+	controller := apicontrollers.New()
+	controller.SetSprintsGateway(sprintsgorm.New(db))
 
 	gin.GET("/sprints/:sprint-id", controller.GetSprint)
 	gin.POST("/sprints", controller.AddSprint)
