@@ -73,17 +73,19 @@ func Test_IssueClose(t *testing.T) {
 
 func Example_Issue() {
 	issue := New()
-	issue.id = 42
-	issue.title = "Issue 42"
-	issue.description = "A dummy issue"
-	issue.closedAt = time.Now()
-	issue.doneAt = time.Now()
+	issue.SetID(42)
+	issue.SetTitle("Issue 42")
+	issue.SetStatus(Open)
+	issue.SetCreatedAt(time.Now())
+	issue.SetDescription("A dummy issue")
+	issue.SetClosedAt(time.Now())
+	issue.SetDoneAt(time.Now())
 
 	fmt.Println(issue.GetID())
 	fmt.Println(issue.GetTitle())
 	fmt.Println(issue.GetDescription())
 
-	fmt.Println(issue.GetStatus() == "")
+	fmt.Println(issue.GetStatus() == Open)
 	fmt.Println(issue.IsDone())
 	fmt.Println(issue.IsClosed())
 

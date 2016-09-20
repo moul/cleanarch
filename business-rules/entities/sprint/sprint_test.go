@@ -88,9 +88,9 @@ func Test_Sprint_Close(t *testing.T) {
 func Example_Sprint() {
 	sprint := New()
 
-	sprint.id = 42
-	sprint.expectedClosedAt = time.Now()
-	sprint.effectiveClosedAt = time.Now()
+	sprint.SetID(42)
+	sprint.SetExpectedClosedAt(time.Now())
+	sprint.SetEffectiveClosedAt(time.Now())
 
 	fmt.Println(sprint.GetID())
 

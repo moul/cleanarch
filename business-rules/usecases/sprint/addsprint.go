@@ -22,7 +22,7 @@ func (uc *AddSprint) SetSprintGateway(gw sprintgw.SprintGateway) {
 	uc.gw = gw
 }
 
-func (uc *AddSprint) SetGetSprintResponseAssembler(resp sprintresp.AddSprintResponseAssembler) {
+func (uc *AddSprint) SetAddSprintResponseAssembler(resp sprintresp.AddSprintResponseAssembler) {
 	uc.resp = resp
 }
 

@@ -70,7 +70,7 @@ func (ctrl *Controller) GetSprint(c *gin.Context) {
 func (ctrl *Controller) AddSprint(c *gin.Context) {
 	uc := sprintuc.NewAddSprint()
 	uc.SetSprintGateway(ctrl.sprintGateway)
-	uc.SetGetSprintResponseAssembler(ctrl.addSprintResponseAssembler)
+	uc.SetAddSprintResponseAssembler(ctrl.addSprintResponseAssembler)
 
 	req := ctrl.addSprintRequestBuilder.Create().Build()
 
