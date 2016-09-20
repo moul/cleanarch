@@ -1,3 +1,6 @@
+api:	$(shell find app business-rules cmd -type f -name "*.go")
+	go build -o api ./cmd/api/main.go
+
 .PHONY: import-paths
 import-paths:
 	for path in $(shell go list ./...); do    \

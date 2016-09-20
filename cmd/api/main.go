@@ -14,7 +14,10 @@ func main() {
 	controller.SetSprintGateway(sprintrepomem.New())
 	controller.SetGetSprintResponseAssembler(sprintucdto.GetSprintResponseAssemblerDTO{})
 	controller.SetGetSprintRequestBuilder(sprintucdto.GetSprintRequestBuilderDTO{})
+	controller.SetAddSprintResponseAssembler(sprintucdto.AddSprintResponseAssemblerDTO{})
+	controller.SetAddSprintRequestBuilder(sprintucdto.AddSprintRequestBuilderDTO{})
 
 	gin.GET("/sprints/:sprint-id", controller.GetSprint)
+	gin.POST("/sprints", controller.AddSprint)
 	gin.Run()
 }

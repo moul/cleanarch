@@ -7,6 +7,8 @@ import (
 	"github.com/moul/go-clean-architecture/business-rules/gateways/sprint"
 )
 
+const maxSprintID = 42
+
 type SprintRepositoryMemory struct {
 	sprintgw.SprintGateway
 
@@ -17,6 +19,27 @@ func New() *SprintRepositoryMemory {
 	return &SprintRepositoryMemory{
 		sprints: make([]sprint.Sprint, 0),
 	}
+}
+
+func (r *SprintRepositoryMemory) New() (*sprint.Sprint, error) {
+	for i := 1; i < maxSprintID; i++ {
+		exists := false
+		for _, sprint := range r.sprints {
+			if sprint.GetID() == i {
+				exists = true
+				break
+			}
+		}
+		if !exists {
+			newSprint := sprint.New()
+			newSprint.SetID(i)
+			if err := r.Add(newSprint); err != nil {
+				return nil, err
+			}
+			return newSprint, nil
+		}
+	}
+	return nil, fmt.Errorf("too much sprint in the repo")
 }
 
 func (r *SprintRepositoryMemory) Add(sprint *sprint.Sprint) error {
