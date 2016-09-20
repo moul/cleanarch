@@ -20,6 +20,7 @@ type Sprint struct {
 func New() *Sprint {
 	return &Sprint{
 		issues:    make([]*issue.Issue, 0),
+		status:    Open,
 		createdAt: time.Now(),
 	}
 }
@@ -30,16 +31,16 @@ func New() *Sprint {
 func (i *Sprint) SetID(val int) { i.id = val }
 
 // SetStatus sets the Status of the sprint.
-func (i *Sprint) SetStatus(val int) { i.id = val }
+func (i *Sprint) SetStatus(val string) { i.status = val }
 
 // SetCreatedAt sets the CreatedAt of the sprint.
-func (i *Sprint) SetCreatedAt(val int) { i.id = val }
+func (i *Sprint) SetCreatedAt(val time.Time) { i.createdAt = val }
 
 // SetExpectedClosedAt sets the ExpectedClosedAt of the sprint.
-func (i *Sprint) SetExpectedClosedAt(val int) { i.id = val }
+func (i *Sprint) SetExpectedClosedAt(val time.Time) { i.expectedClosedAt = val }
 
 // SetEffectiveClosedAt sets the EffectiveClosedAt of the sprint.
-func (i *Sprint) SetEffectiveClosedAt(val int) { i.id = val }
+func (i *Sprint) SetEffectiveClosedAt(val time.Time) { i.effectiveClosedAt = val }
 
 /* Getters */
 
