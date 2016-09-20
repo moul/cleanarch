@@ -7,3 +7,7 @@ import-paths:
 	  cd "$(GOPATH)/src/$$path" &&            \
 	  FORMAT=svg FILTER=dot gen-import-path;  \
 	done
+
+.PHONY: test
+test:
+	go test -v $(shell go list ./... | grep -v /vendor/)
