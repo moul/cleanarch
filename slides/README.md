@@ -1,8 +1,10 @@
 # [fit] "Clean" Architecture
 
-## Veni, Vedi, P.O.C.
-
 ### 2016, by Manfred Touron (@moul)
+
+---
+
+# intro slide
 
 ---
 
@@ -14,12 +16,14 @@
 * S.O.L.I.D (SRP, OCP, LS, IS, DI)
 * TDD (Test Driven Development)
 
+[^1]: more info: http://fr.slideshare.net/RomainKuzniak/design-applicatif-avec-symfony2
+
 ---
 
 # design slogans 2/2 [^1]
 
 * BDD (Behavior Driven Development)
-* DDD (Domain Driven Design
+* DDD (Domain Driven Design)
 * ...
 
 ---
@@ -29,18 +33,22 @@
 * MVC
 * N3 Architectures
 * Domain Driven Design
-* Clean Architecture
+* Clean Architecture (2014, good background, 0 implems)
+
+---
+
+# the "clean" architecture [^2]
+
+* Not a revolution, a mix of multiple existing principles
+* The other designs are not "dirty" architectures
+* Recent examples: Hexagonal Architecture, Onion Architecture, Screaming Architecture, DCI, BCE
+* Dependency injection at the buildtime or at leat at the runtime init
+
+[^2]: https://8thlight.com/blog/uncle-bob/2012/08/13/the-clean-architecture.html
 
 ---
 
 ![fit](assets/cleanarch.jpg)
-
----
-
-
-# the "clean" architecture [^2]
-
-
 
 ---
 
@@ -180,26 +188,50 @@ func (uc *UseCase) Execute(req Request) (Response, error) {
 
 ---
 
-# pros
+# pros 1/2
 
-* ...
-* ...
-* ...
+* highly reusable
+* separate business rules <-> drivers
+* ease of switching to new backends
+* "LTS" business rules - heritage
+* unit-tests friendly
+* keep good performances (in Go (no needs for reflect))
+
+---
+
+# pros 2/2
+
+* TDD friendly (Test Driver Development)
+* BDD friendly (Behavior Driven Development)
+* TDD + BDD drives to good designs
+* ease of switching to new interfaces (or have multiple ones)
+*
 
 ---
 
 # cons
 
+* a loooooot of files, classes, ...
+* code discovery, classes not directly linked to real objects, but to interfaces
 * ...
-* ...
-* ...
+
+---
+
+![](http://image.slidesharecdn.com/designapplicatifavecsymfony2-141216115702-conversion-gate02/95/design-applicatif-avec-symfony2-99-1024.jpg?cb=1418786874)
+
+---
+
+# improvements ideas
+
+* less files, more readable code, gogenerate
+*
 
 ---
 
 # conclusion
 
-* ...
-* ...
+* interesting for big projects, overkill for smaller
+* should be done completely
 * ...
 
 ---
@@ -208,6 +240,3 @@ func (uc *UseCase) Execute(req Request) (Response, error) {
 
 ### github.com/moul/cleanarch
 ### @moul
-
-[^1]: more info: http://fr.slideshare.net/RomainKuzniak/design-applicatif-avec-symfony2
-[^2]: https://8thlight.com/blog/uncle-bob/2012/08/13/the-clean-architecture.html
