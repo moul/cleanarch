@@ -9,6 +9,8 @@ import (
 	"github.com/moul/cleanarch/example/bizrules/usecases/add_sprint/dto"
 	"github.com/moul/cleanarch/example/bizrules/usecases/get_sprint"
 	"github.com/moul/cleanarch/example/bizrules/usecases/get_sprint/dto"
+	"github.com/moul/cleanarch/example/bizrules/usecases/ping"
+	"github.com/moul/cleanarch/example/bizrules/usecases/ping/dto"
 
 	_ "github.com/mattn/go-sqlite3"
 )
@@ -27,12 +29,14 @@ func main() {
 	// Setup usecases
 	getSprint := getsprint.New(sprintsGw, getsprintdto.ResponseAssembler{})
 	addSprint := addsprint.New(sprintsGw, addsprintdto.ResponseAssembler{})
+	ping := ping.New(pingdto.ResponseAssembler{})
 	//closeSprint := closesprint.New(sprintsGw, closesprintdto.ResponseBuilder{})
 
 	// Setup API
 	gin := gin.Default()
 	gin.GET("/sprints/:sprint-id", apicontrollers.NewGetSprint(&getSprint).Execute)
 	gin.POST("/sprints", apicontrollers.NewAddSprint(&addSprint).Execute)
+	gin.GET("/ping", apicontrollers.NewPing(&ping).Execute)
 	//gin.DELETE("/sprints/:sprint-id", apicontrollers.NewCloseSprint(&closeSprint).Execute)
 
 	// Start
