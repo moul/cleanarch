@@ -1,4 +1,4 @@
-# "Clean" Architecture
+cd# "Clean" Architecture
 
 ## Veni, Vedi, P.O.C.
 
@@ -19,6 +19,15 @@
 * ...
 * ...
 * ...
+
+---
+
+# dependency graphs
+
+`./cmd/api`: ![](assets/cmd-api.imports.png)
+`./app/controllers/api`: ![](assets/app-controllers-api.imports.png)
+`./app/repos/sprints/gorm`:  ![](assets/app-repos-sprints-gorm.imports.png)
+`./bizrules/usecases/get_sprint`: ![](assets/bizrules-usecases-get_sprint.imports.png)
 
 ---
 
