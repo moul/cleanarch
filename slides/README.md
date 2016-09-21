@@ -4,7 +4,14 @@
 
 ---
 
-# intro slide
+# overview
+
+* the "clean" architecture, "Yet Another New Architecture"
+* by uncle Bob
+* discovered 3 months ago at OpenClassrooms with Romain Kuzniak
+* recent, no real spec, no official implementation
+* I don't use "clean" architecture in production
+* I'm not a "clean" architecture expert
 
 ---
 
@@ -33,7 +40,7 @@
 * MVC
 * N3 Architectures
 * Domain Driven Design
-* Clean Architecture (2014, good background, 0 implems)
+* Clean Architecture
 
 ---
 
@@ -195,7 +202,7 @@ func (uc *UseCase) Execute(req Request) (Response, error) {
 * ease of switching to new backends
 * "LTS" business rules - heritage
 * unit-tests friendly
-* keep good performances (in Go (no needs for reflect))
+* keep "good" performances (perhaps specific with Go (no needs for reflect))
 
 ---
 
@@ -205,15 +212,16 @@ func (uc *UseCase) Execute(req Request) (Response, error) {
 * BDD friendly (Behavior Driven Development)
 * TDD + BDD drives to good designs
 * ease of switching to new interfaces (or have multiple ones)
-*
+* standardize exchanges; unit-tests requests and responses
+* the boundaries are clearly defined, it forces you to keep things at the right place
 
 ---
 
 # cons
 
-* a loooooot of files, classes, ...
+* a loooooot of files, classes, ... (annoying for creating new entities, usecases...)
 * code discovery, classes not directly linked to real objects, but to interfaces
-* ...
+* make some optimizations harder, i.e: transactions
 
 ---
 
@@ -223,16 +231,18 @@ func (uc *UseCase) Execute(req Request) (Response, error) {
 
 # improvements ideas
 
-* less files, more readable code, gogenerate
-*
+* gogenerate: less files, more readable code
+* add stats on the GitHub repo (impact on performances, LOC, complexity)
+* ...
 
 ---
 
 # conclusion
 
-* interesting for big projects, overkill for smaller
-* should be done completely
-* ...
+* it's a Gasoil, the learning curve (start) is long
+* interesting for big projects, overkill for smaller, the center domain needs to be rich enough
+* should be done completely, or not at all
+* needs to be rigorous with the main and unit tests
 
 ---
 
