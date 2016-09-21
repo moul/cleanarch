@@ -3,12 +3,11 @@ package addsprintio
 import (
 	"time"
 
-	"github.com/moul/cleanarch"
 	"github.com/moul/cleanarch/example/bizrules/entities"
 )
 
 type Response interface {
-	cleanarch.UseCaseResponse
+	// cleanarch.UseCaseResponse
 
 	GetCreatedAt() time.Time
 	GetID() int
@@ -18,10 +17,10 @@ type ResponseAssembler interface {
 }
 
 type Request interface {
-	cleanarch.UseCaseRequest
+	// cleanarch.UseCaseRequest
 }
 type RequestBuilder interface {
-	cleanarch.UseCaseRequestBuilder
+	// cleanarch.UseCaseRequestBuilder
 
 	Create() RequestBuilder
 	Build() Request

@@ -1,9 +1,7 @@
 package closesprintio
 
-import "github.com/moul/cleanarch"
-
 type Response interface {
-	cleanarch.UseCaseResponse
+	// cleanarch.UseCaseResponse
 
 	GetAverageClosedIssues() float64
 	GetClosedIssuesCount() int
@@ -19,12 +17,12 @@ type ResponseBuilder interface {
 }
 
 type Request interface {
-	cleanarch.UseCaseRequest
+	// cleanarch.UseCaseRequest
 	GetSprintID() int
 }
 
 type RequestBuilder interface {
-	cleanarch.UseCaseRequestBuilder
+	// cleanarch.UseCaseRequestBuilder
 
 	Create() RequestBuilder
 	WithSprintID(int) RequestBuilder

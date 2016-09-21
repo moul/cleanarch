@@ -3,12 +3,11 @@ package getsprintio
 import (
 	"time"
 
-	"github.com/moul/cleanarch"
 	"github.com/moul/cleanarch/example/bizrules/entities"
 )
 
 type Response interface {
-	cleanarch.UseCaseResponse
+	// cleanarch.UseCaseResponse
 
 	GetCreatedAt() time.Time
 	GetEffectiveClosedAt() time.Time
@@ -22,13 +21,14 @@ type ResponseAssembler interface {
 }
 
 type Request interface {
-	cleanarch.UseCaseRequest
+	// cleanarch.UseCaseRequest
 
 	GetID() int
 }
 
 type RequestBuilder interface {
-	cleanarch.UseCaseRequestBuilder
+	// cleanarch.UseCaseRequestBuilder
+
 	Create() RequestBuilder
 	WithSprintID(int) RequestBuilder
 	Build() Request

@@ -1,12 +1,10 @@
 package ping
 
-import (
-	"github.com/moul/cleanarch"
-	"github.com/moul/cleanarch/example/bizrules/usecases/ping/io"
-)
+import "github.com/moul/cleanarch/example/bizrules/usecases/ping/io"
 
 type UseCase struct {
-	cleanarch.UseCase
+	// cleanarch.UseCase
+
 	resp pingio.ResponseAssembler
 }
 

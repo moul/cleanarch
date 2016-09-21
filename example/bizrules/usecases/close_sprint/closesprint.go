@@ -1,13 +1,12 @@
 package closesprint
 
 import (
-	"github.com/moul/cleanarch"
 	"github.com/moul/cleanarch/example/bizrules/gateways"
 	"github.com/moul/cleanarch/example/bizrules/usecases/close_sprint/io"
 )
 
 type UseCase struct {
-	cleanarch.UseCase
+	// cleanarch.UseCase
 
 	gw   gateways.Sprints
 	resp closesprintio.ResponseBuilder
