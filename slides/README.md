@@ -6,19 +6,41 @@
 
 ---
 
-# development designs
+# design slogans 1/2 [^1]
 
-* ...
-* ...
+* YAGNI (You Ain't Gonna Need It)
+* KISS (Keep It Simple, Stupid)
+* DRY (Don't Repeat Yourself)
+* S.O.L.I.D (SRP, OCP, LS, IS, DI)
+* TDD (Test Driven Development)
+
+---
+
+# design slogans 2/2 [^1]
+
+* BDD (Behavior Driven Development)
+* DDD (Domain Driven Design
 * ...
 
 ---
 
-# the "clean" architecture
+# design types [^1]
 
-* ...
-* ...
-* ...
+* MVC
+* N3 Architectures
+* Domain Driven Design
+* Clean Architecture
+
+---
+
+![fit](assets/cleanarch.jpg)
+
+---
+
+
+# the "clean" architecture [^2]
+
+
 
 ---
 
@@ -184,4 +206,8 @@ func (uc *UseCase) Execute(req Request) (Response, error) {
 
 # questions ?
 
+### github.com/moul/cleanarch
 ### @moul
+
+[^1]: more info: http://fr.slideshare.net/RomainKuzniak/design-applicatif-avec-symfony2
+[^2]: https://8thlight.com/blog/uncle-bob/2012/08/13/the-clean-architecture.html
