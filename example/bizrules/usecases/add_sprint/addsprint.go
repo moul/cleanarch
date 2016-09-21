@@ -13,16 +13,11 @@ type UseCase struct {
 	resp addsprintio.ResponseAssembler
 }
 
-func New() UseCase {
-	return UseCase{}
-}
-
-func (uc *UseCase) SetSprintsGateway(gw gateways.Sprints) {
-	uc.gw = gw
-}
-
-func (uc *UseCase) SetResponseAssembler(resp addsprintio.ResponseAssembler) {
-	uc.resp = resp
+func New(gw gateways.Sprints, resp addsprintio.ResponseAssembler) UseCase {
+	return UseCase{
+		gw:   gw,
+		resp: resp,
+	}
 }
 
 func (uc *UseCase) Execute(req addsprintio.Request) (addsprintio.Response, error) {

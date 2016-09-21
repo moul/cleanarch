@@ -32,9 +32,8 @@ func (ctrl *Controller) GetSprint(c *gin.Context) {
 		return
 	}
 
-	uc := getsprint.New()
-	uc.SetSprintsGateway(ctrl.sprintsGw)
-	uc.SetResponseAssembler(getsprintdto.ResponseAssembler{})
+	respAsm := getsprintdto.ResponseAssembler{}
+	uc := getsprint.New(ctrl.sprintsGw, respAsm)
 
 	req := getsprintdto.RequestBuilder{}.
 		Create().
@@ -51,9 +50,8 @@ func (ctrl *Controller) GetSprint(c *gin.Context) {
 }
 
 func (ctrl *Controller) AddSprint(c *gin.Context) {
-	uc := addsprint.New()
-	uc.SetSprintsGateway(ctrl.sprintsGw)
-	uc.SetResponseAssembler(addsprintdto.ResponseAssembler{})
+	respAsm := addsprintdto.ResponseAssembler{}
+	uc := addsprint.New(ctrl.sprintsGw, respAsm)
 
 	req := addsprintdto.RequestBuilder{}.
 		Create().

@@ -16,10 +16,10 @@ func dummyUseCase() UseCase {
 	repo.Add(usecases.SprintStub1)
 	repo.Add(usecases.SprintStub2)
 
+	resp := getsprintdto.ResponseAssembler{}
+
 	// prepare usecase
-	uc := New()
-	uc.SetSprintsGateway(repo)
-	uc.SetResponseAssembler(getsprintdto.ResponseAssembler{})
+	uc := New(repo, resp)
 	return uc
 }
 
