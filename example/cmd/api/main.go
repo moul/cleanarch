@@ -5,6 +5,10 @@ import (
 	"github.com/jinzhu/gorm"
 	"github.com/moul/cleanarch/example/app/controllers/api"
 	"github.com/moul/cleanarch/example/app/repos/sprints/gorm"
+	"github.com/moul/cleanarch/example/bizrules/usecases/add_sprint"
+	"github.com/moul/cleanarch/example/bizrules/usecases/add_sprint/dto"
+	"github.com/moul/cleanarch/example/bizrules/usecases/get_sprint"
+	"github.com/moul/cleanarch/example/bizrules/usecases/get_sprint/dto"
 
 	_ "github.com/mattn/go-sqlite3"
 )
@@ -17,13 +21,19 @@ func main() {
 	}
 	defer db.Close()
 
+	// Setup gateways
+	sprintsGw := sprintsgorm.New(db)
+
+	// Setup usecases
+	getSprint := getsprint.New(sprintsGw, getsprintdto.ResponseAssembler{})
+	addSprint := addsprint.New(sprintsGw, addsprintdto.ResponseAssembler{})
+	//closeSprint := closesprint.New(sprintsGw, closesprintdto.ResponseBuilder{})
+
 	// Setup API
 	gin := gin.Default()
-	controller := apicontrollers.New()
-	controller.SetSprintsGateway(sprintsgorm.New(db))
-
-	gin.GET("/sprints/:sprint-id", controller.GetSprint)
-	gin.POST("/sprints", controller.AddSprint)
+	gin.GET("/sprints/:sprint-id", apicontrollers.NewGetSprint(&getSprint).Execute)
+	gin.POST("/sprints", apicontrollers.NewAddSprint(&addSprint).Execute)
+	//gin.DELETE("/sprints/:sprint-id", apicontrollers.NewCloseSprint(&closeSprint).Execute)
 
 	// Start
 	gin.Run()
